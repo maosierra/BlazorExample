@@ -15,4 +15,13 @@
     <ProjectReference Include="..\H5-Template.Shared\H5-Template.Shared.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Content Update="Shared\NavBarMenuH5.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Shared\SideBarNavMenuH5.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+  </ItemGroup>
+
 </Project>

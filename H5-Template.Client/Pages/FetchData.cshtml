@@ -1,5 +1,7 @@
 ﻿@using H5_Template.Shared
 @page "/fetchdata"
+@using H5_Template.Client.Services.Interface
+@inject ISiteDataService SiteDataService
 @inject HttpClient Http
 
 <h1>Weather forecast</h1>
@@ -37,6 +39,13 @@ else
 
 @functions {
     WeatherForecast[] forecasts;
+
+    protected override void OnInit()
+    {
+        SiteDataService.SetPageTitle("Fetch data");
+        base.OnInit();
+        this.StateHasChanged();
+    }
 
     protected override async Task OnInitAsync()
     {

@@ -1,0 +1,55 @@
+﻿<div class="sidebar">
+    <div class="site-sidebar">
+        <NavLink class="logo" href="/">
+            <img src="assets/img/logo.svg" alt="" width="57" height="50" class="logo-img">
+            <span class="logo-text">admin</span>
+        </NavLink>
+        <nav class="main-menu">
+            <ul class="menu-ul">
+                <li class="menu-item-group menu-item">
+                    <span class="group-title">Main</span>
+                </li>
+
+                <li class=@(collapseNavMenu ? "menu-item has-sub active" : "menu-item has-sub")>
+                    <a class="item-link" href="#" onclick=@ToggleNavMenu>
+                        <span class="icon"><i class="icon-wrap fa fa-home"></i></span>
+                        <span class="text">Dashboards</span>
+                        <span class="badge item-badge danger-badge">2</span>
+                        <i class="caret fa fa-angle-right"></i>
+                    </a>
+
+                    <ul class="sub">
+                        <li class=@(mainNavSubMenu == 1 ? "menu-item active" : "menu-item") onclick=@(() => MainNavSubMenu(1))>
+                            <NavLink class="item-link" href="counter">
+                                <span class="text" aria-hidden="true">Counter</span>
+                            </NavLink>
+                        </li>
+
+                        <li class=@(mainNavSubMenu == 2 ? "menu-item active" : "menu-item") onclick=@(() => MainNavSubMenu(2))>
+                            <NavLink class="item-link" href="fetchdata">
+                                <span class="text" aria-hidden="true">Fetch data</span> 
+                            </NavLink>
+                        </li>
+                    </ul>
+                </li><!-- .menu-item -->
+
+            </ul><!-- .menu-ul -->
+        </nav><!-- .main-menu -->
+    </div>
+    <div class="sidebar-overlay"></div>
+</div><!-- .sidebar -->
+
+@functions {
+    bool collapseNavMenu = true;
+    int mainNavSubMenu = 0;
+
+    void ToggleNavMenu()
+    {
+        collapseNavMenu = !collapseNavMenu;
+    }
+
+    void MainNavSubMenu(int menuNumber)
+    {
+        mainNavSubMenu = menuNumber;
+    }
+}

@@ -1,4 +1,6 @@
 ﻿@page "/counter"
+@using H5_Template.Client.Services.Interface
+@inject ISiteDataService SiteDataService
 
 <h1>Counter</h1>
 
@@ -8,6 +10,12 @@
 
 @functions {
     int currentCount = 0;
+
+    protected override void OnInit()
+    {
+        SiteDataService.SetPageTitle("Counter");
+        this.StateHasChanged();
+    }
 
     void IncrementCount()
     {

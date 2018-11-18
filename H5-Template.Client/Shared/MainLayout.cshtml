@@ -1,15 +1,19 @@
 ﻿@inherits BlazorLayoutComponent
 
 <div class="sidebar">
-    <NavMenu />
+    <SideBarNavMenuH5 />
 </div>
 
-<div class="main">
-    <div class="top-row px-4">
-        <a href="http://blazor.net" target="_blank" class="ml-md-auto">About</a>
-    </div>
+<div class="navbar">
+    <NavBarMenuH5 />
+</div><!-- .navbar -->
 
-    <div class="content px-4">
-        @Body
+<div class="app">
+    <div class="site-container">
+        <main class="main-content">
+            <div class="main-content-wrap">
+                @Body
+            </div>
+        </main>
     </div>
 </div>
